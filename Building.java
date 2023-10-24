@@ -1,9 +1,18 @@
 public class Building {
 
+    /** name of building */
     protected String name = "<Name Unknown>";
+    /** address of building */
     protected String address = "<Address Unknown>";
+    /** number of floors in the building */
     protected int nFloors = 1;
 
+    /**
+     * creates a building object
+     * @param name name of building
+     * @param address address of building
+     * @param nFloors number of floors in the building
+     */
     public Building(String name, String address, int nFloors) {
         if (name != null) { this.name = name; }
         if (address != null) { this.address = address; } 
