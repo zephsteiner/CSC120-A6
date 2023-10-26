@@ -1,6 +1,10 @@
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+/** 
+ * A class to represent a library with methods to modify  the collection 
+ * and check books in and out as well as check the status of items.
+ */
 public class Library extends Building {
 
   /** The collection of items in the Library */
@@ -113,7 +117,22 @@ public class Library extends Building {
    * @param args
    */
   public static void main(String[] args) {
-    new Library("Neilson", "1 Neilson Dr", 4);
+    Library l = new Library("Neilson", "1 Neilson Dr", 4);
+    l.addTitle("Eugene Onegin by Alexander Pushkin");
+    l.printCollection();
+    l.checkOut("Eugene Onegin by Alexander Pushkin");
+    l.printCollection();
+    l.returnBook("Eugene Onegin by Alexander Pushkin");
+    l.printCollection();
+    l.removeTitle("Eugene Onegin by Alexander Pushkin");
+    l.addTitle("Ancillary Justice by Ann Leckie");
+    l.printCollection();
+    try {
+      l.checkOut("Eugene Onegin by Alexander Pushkin");
+    } catch (Exception e) {
+      System.out.println("not there :(");
+    }
+    l.printCollection();
   }
   
 }

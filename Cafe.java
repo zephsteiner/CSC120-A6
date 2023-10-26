@@ -1,3 +1,7 @@
+/** 
+ * A class representing a cafe with methods to sell coffee and restock 
+ * the supplies needed for basic coffee preperation.
+ * */
 public class Cafe extends Building {
     /** The number of ounces of coffee remaining in inventory */
     private int nCoffeeOunces;
@@ -36,21 +40,25 @@ public class Cafe extends Building {
             this.nCoffeeOunces -= size;
         } else {
             restock(200, 0, 0, 0);
+            this.nCoffeeOunces -= size;
         }
         if (this.nSugarPackets >= nSugarPackets) {
-            this.nSugarPackets -= size;
+            this.nSugarPackets -= nSugarPackets;
         } else {
             restock(0, 80, 0, 0);
+            this.nSugarPackets -= nSugarPackets;
         }
         if (this.nCreams >= nCreams) {
             this.nCreams -= nCreams;
         } else {
             restock(0, 0, 60, 0);
+            this.nCreams -= nCreams;
         }
         if (this.nCups > 0) {
             this.nCups -= 1;
         } else {
             restock(0, 0, 0, 50);
+            this.nCups -= 1;
         }
     }
 
@@ -69,11 +77,23 @@ public class Cafe extends Building {
     }
 
     /**
+     * toString for a Cafe object
+     */
+    public String toString() {
+        return ("The cafe '" + this.name + "' has " + this.nCoffeeOunces + " ounces of coffee, " 
+            + this.nSugarPackets + " sugar packets, " + this.nCreams + " splashes of cream, and " 
+            + nCups + " cups" );
+    }
+
+    /**
      * for testing
      * @param args
      */
     public static void main(String[] args) {
-        new Cafe("CC Cafe", "1 Chapin Way", 1);
+        Cafe ccCafe = new Cafe("CC Cafe", "1 Chapin Way", 1);
+        System.out.println(ccCafe);
+        ccCafe.sellCoffee(12, 2, 61);
+        System.out.println(ccCafe);
     }
     
 }

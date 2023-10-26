@@ -1,3 +1,6 @@
+/** A class to represent a generic building with methods to get basic 
+ * information about the building.
+ */
 public class Building {
 
     /** Name of Building */

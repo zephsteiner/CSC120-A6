@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ * A class to represent a dormitory-style house where many students can 
+ * life. It contains methods to access basic information about itself as well
+ * as to modify the list of residents in the building.
+ */
 public class House extends Building{
 
   /** List of residents of the House */
